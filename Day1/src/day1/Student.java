@@ -3,11 +3,11 @@ package day1;
 import javax.xml.namespace.QName;
 
 public class Student {
-    private  String name;
-    private  int division;
-    private  float grade;
+    private final String name;
+    private final int division;
+    private final float grade;
     private static int count=0;
-    private int rollNo;
+    private final int rollNo;
 
     public Student(String name, int division, float grade)
     {

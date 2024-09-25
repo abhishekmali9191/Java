@@ -4,7 +4,13 @@ public class nEWdATE {
     private int day;
     private String month;
     private int year;
-
+    public nEWdATE(){}
+    public nEWdATE(int day,String month, int year)
+    {
+        this.day=day;
+        this.month=month;
+        this.year=year;
+    }
     public void setDay(int day) {
         if(day<0) {
             System.out.println("Invalid day input.");
