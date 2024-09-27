@@ -1,6 +1,8 @@
 package day3;
 
-public abstract class Employee {
+import day4.Printable;
+
+public abstract class Employee implements Printable {
     protected int empid;
     protected String name;
 
@@ -14,5 +16,10 @@ public abstract class Employee {
     @Override
     public String toString() {
         return "Employee Data : Id : " + empid + " Name : "+ name;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Employee Data : Id : " + empid + " Name : "+ name);
     }
 }

@@ -1,3 +1,6 @@
+PRN : 240840128003
+PRN : 240840128021
+
 Dessert.java
 ---------------------------------------------------------------------------------------------------------
 package day4;
@@ -195,4 +198,129 @@ public class Store {
     }
 }
 
+OUTPUT :
+-----------------------------------------------------------------------------------------------------------
 
+ 
+
+ 
+ 
+ 
+
+OUTPUT in Text:
+------------------------------------------------------------------------------------------------------------
+"C:\Program Files\Java\jdk-21\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.2\lib\idea_rt.jar=4553:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\DAI.STUDENTSDC\Desktop\Abhsihek\Java\Day1\out\production\Java day4.Store
+*************************  Welcome to The Store   ***********************
+What do you Want to Buy 
+Candies 
+Cookies 
+IceCream 
+Exit
+candies
+Candies Menu  
+Flavour      Price/Kg
+Chocolate    150/kg
+vanila       200/kg
+mango        300/kg
+normal       100/kg
+Enter flavour : 
+mango
+ Enter Quantity in Grams : 
+1000
+Dessert Type : Candy , Dessert Flavour : mango, Quantity in Grams : 1000.0, And Price per Kg = 300.0
+Price for Current order is : 300.0
+Do You Want to Continue Shopping 
+1.Yes   2.NO
+yes
+*************************  Welcome to The Store   ***********************
+What do you Want to Buy 
+Candies 
+Cookies 
+IceCream 
+Exit
+cookies
+Cookies Menu  
+Flavour      Price/dozzen
+Chocolate    180/dozzen
+vanila       240/dozzen
+mint         300/dozzen
+normal       120/dozzen
+Enter flavour : 
+min
+ Enter Quantity in Pieces : 
+10
+Dessert Type : Cookies , Dessert Flavour : min, Quantity in nos : 10.0, And Price per Dozzen = 120.0
+Price for Current order is : 100.0
+Do You Want to Continue Shopping 
+1.Yes   2.NO
+yes
+*************************  Welcome to The Store   ***********************
+What do you Want to Buy 
+Candies 
+Cookies 
+IceCream 
+Exit
+cookies
+Cookies Menu  
+Flavour      Price/dozzen
+Chocolate    180/dozzen
+vanila       240/dozzen
+mint         300/dozzen
+normal       120/dozzen
+Enter flavour : 
+mint
+ Enter Quantity in Pieces : 
+20
+Dessert Type : Cookies , Dessert Flavour : mint, Quantity in nos : 20.0, And Price per Dozzen = 300.0
+Price for Current order is : 500.0
+Do You Want to Continue Shopping 
+1.Yes   2.NO
+yes
+*************************  Welcome to The Store   ***********************
+What do you Want to Buy 
+Candies 
+Cookies 
+IceCream 
+Exit
+Icecream
+IceCream Menu  
+Flavour      Price/piece
+Chocolate    40/piece
+vanila       50/piece
+butterscotch  60/piece
+normal       35/piece
+Enter flavour : 
+butterscotch
+ Enter Quantity in Pieces : 
+10
+Dessert Type : Ice Cream , Dessert Flavour : butterscotch, Quantity in nos : 10.0, And Price per piece = 60.0
+Price for Current order is : 600.0
+Do You Want to Continue Shopping 
+1.Yes   2.NO
+yes
+*************************  Welcome to The Store   ***********************
+What do you Want to Buy 
+Candies 
+Cookies 
+IceCream 
+Exit
+icecream
+IceCream Menu  
+Flavour      Price/piece
+Chocolate    40/piece
+vanila       50/piece
+butterscotch  60/piece
+normal       35/piece
+Enter flavour : 
+chocolate
+ Enter Quantity in Pieces : 
+1
+Dessert Type : Ice Cream , Dessert Flavour : chocolate, Quantity in nos : 1.0, And Price per piece = 40.0
+Price for Current order is : 40.0
+Do You Want to Continue Shopping 
+1.Yes   2.NO
+no
+Total number of items : 5
+Total Bill of your order is 1540.0
+
+Process finished with exit code 0
