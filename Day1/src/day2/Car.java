@@ -16,7 +16,7 @@ public class Car {
 
     public String toString()
     {
-        return "Car Make : "+make+"                     Car Model : "+model+" Purchase Date : "+purchaseDate;
+        return "Car Make : "+make+"  Car Model : "+model+" Purchase Date : "+purchaseDate;
     }
 
     public static void main(String[] args) {
