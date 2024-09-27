@@ -13,4 +13,8 @@ public class Manager extends SalariedEmployee{
         double netTotal= total+total*(allowances/100);
         return netTotal;
     }
+
+    public double getAllownces(){
+        return allowances;
+    }
 }
