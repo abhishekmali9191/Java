@@ -1,0 +1,198 @@
+Dessert.java
+---------------------------------------------------------------------------------------------------------
+package day4;
+
+public abstract class Dessert {
+    protected double quantity;
+    protected String flavour;
+
+
+
+    public Dessert(double quantity,String flavour)
+    {
+        this.quantity=quantity;
+        this.flavour=flavour;
+
+    }
+
+    public abstract double calculatePrice();
+    public abstract String displayName();
+
+
+}
+
+
+Candies.java
+--------------------------------------------------------------------------------------------------------
+package day4;
+
+public class Candies extends Dessert{
+    protected double candyPrice;
+
+    public Candies(double quantity,String flavour) {
+        super(quantity,flavour);
+        if(flavour.equalsIgnoreCase("chocolate"))
+            this.candyPrice=150;
+        else if (flavour.equalsIgnoreCase("vanila"))
+            this.candyPrice=200;
+        else if (flavour.equalsIgnoreCase("mango"))
+            this.candyPrice=300;
+        else
+            this.candyPrice=100;
+
+    }
+
+    @Override
+    public double calculatePrice() {
+        return (quantity/1000)*candyPrice;
+    }
+
+    @Override
+    public String displayName() {
+        return "Dessert Type : Candy , Dessert Flavour : "+ flavour+ ", Quantity in Grams : "+ quantity+ ", And Price per Kg = "+candyPrice;
+    }
+}
+
+Cookies.java
+--------------------------------------------------------------------------------------------------------
+package day4;
+
+public class Cookies extends Dessert{
+    double cookiePrice;
+    protected String name="Cookie";
+    public Cookies(double quantity,String flavour) {
+        super(quantity,flavour);
+        if(flavour.equalsIgnoreCase("chocolate"))
+            this.cookiePrice=180;
+        else if (flavour.equalsIgnoreCase("vanila"))
+            this.cookiePrice=240;
+        else if (flavour.equalsIgnoreCase("mint"))
+            this.cookiePrice=300;
+        else
+            this.cookiePrice=120;
+    }
+
+    @Override
+    public double calculatePrice() {
+        return quantity*(cookiePrice/12);
+    }
+
+    @Override
+    public String displayName() {
+        return "Dessert Type : Cookies , Dessert Flavour : "+ flavour+ ", Quantity in nos : "+ quantity+ ", And Price per Dozzen = "+cookiePrice;
+    }
+}
+
+Icecream.java
+-------------------------------------------------------------------------------------------------------
+package day4;
+
+public class Icecream extends Dessert{
+    double iceCreamPrice;
+    protected String name="Ice Cream";
+    public Icecream(double quantity,String flavour) {
+        super(quantity,flavour);
+        if(flavour.equalsIgnoreCase("chocolate"))
+            this.iceCreamPrice=40;
+        else if (flavour.equalsIgnoreCase("vanila"))
+            this.iceCreamPrice=50;
+        else if (flavour.equalsIgnoreCase("butterscotch"))
+            this.iceCreamPrice=60;
+        else
+            this.iceCreamPrice=35;
+    }
+
+    @Override
+    public double calculatePrice() {
+        return quantity*iceCreamPrice;
+    }
+
+    @Override
+    public String displayName() {
+        return "Dessert Type : Ice Cream , Dessert Flavour : "+ flavour+ ", Quantity in nos : "+ quantity+ ", And Price per piece = "+iceCreamPrice;
+    }
+}
+
+Cart.java
+-------------------------------------------------------------------------------------------------------
+package day4;
+
+public class Cart {
+    protected double totalBill;
+
+    public void addToCart(Dessert dessert)
+    {
+        System.out.println(dessert.displayName());
+        System.out.println("Price for Current order is : "+dessert.calculatePrice());
+        totalBill += dessert.calculatePrice();
+
+    }
+    public void displayTotalBill(){
+        System.out.println("Total Bill of your order is " + totalBill);
+    }
+}
+
+Store.java
+---------------------------------------------------------------------------------------------------------
+package day4;
+
+import java.util.Scanner;
+
+public class Store {
+    public static void main(String[] args) {
+        Cart cart = new Cart();
+        Scanner sc = new Scanner(System.in);
+        int count=0;
+
+        while (true)
+        {
+            System.out.println("*************************  Welcome to The Store   ***********************");
+            System.out.println("What do you Want to Buy \nCandies \nCookies \nIceCream \nExit");
+            String item = sc.next();
+            count++;
+            if (item.equalsIgnoreCase("candies"))
+            {
+                System.out.println("Candies Menu  \nFlavour      Price/Kg\nChocolate    150/kg\nvanila       200/kg\nmango        300/kg\nnormal       100/kg");
+                System.out.println("Enter flavour : ");
+                String flavour = sc.next();
+                System.out.println(" Enter Quantity in Grams : ");
+                double quantity = sc.nextDouble();
+                Dessert d1 = new Candies(quantity,flavour);
+                cart.addToCart(d1);
+            }
+            else if (item.equalsIgnoreCase("cookies"))
+            {
+                System.out.println("Cookies Menu  \nFlavour      Price/dozzen\nChocolate    180/dozzen\nvanila       240/dozzen\nmint         300/dozzen\nnormal       120/dozzen");
+                System.out.println("Enter flavour : ");
+                String flavour = sc.next();
+                System.out.println(" Enter Quantity in Pieces : ");
+                double quantity = sc.nextDouble();
+                Dessert d1 = new Cookies(quantity,flavour);
+                cart.addToCart(d1);
+
+            }
+            else if (item.equalsIgnoreCase("icecream"))
+            {
+                System.out.println("IceCream Menu  \nFlavour      Price/piece\nChocolate    40/piece\nvanila       50/piece\nbutterscotch 60/piece\nnormal       35/piece");
+                System.out.println("Enter flavour : ");
+                String flavour = sc.next();
+                System.out.println(" Enter Quantity in Pieces : ");
+                double quantity = sc.nextDouble();
+                Dessert d1 = new Icecream(quantity,flavour);
+                cart.addToCart(d1);
+
+            }
+            else
+                System.out.println("Invalid Input..");
+
+            System.out.println("Do You Want to Continue Shopping \n1.Yes   2.NO");
+            String x = sc.next();
+            if(x.equalsIgnoreCase("no"))
+                break;
+        }
+        System.out.println("Total number of items : "+count);
+        cart.displayTotalBill();
+    }
+}
+
+
