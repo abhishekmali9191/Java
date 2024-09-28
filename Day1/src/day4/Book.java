@@ -19,4 +19,15 @@ public class Book implements Printable, Writable {
     public void print() {
         System.out.println("Printing a book...");
     }
+
+    @Override
+    public void foo() {
+        Printable.super.foo();
+    }
+//    @Override
+//    public void foo(){
+//        Writable.super.foo();
+//    }
+
+
 }

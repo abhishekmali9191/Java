@@ -1,5 +1,6 @@
 package day4;
 
+import day3.ContractEmployee;
 import day3.SalariedEmployee;
 
 public class Printer {
@@ -15,5 +16,9 @@ public class Printer {
 
         SalariedEmployee se = new SalariedEmployee(101, "Abhishek", 50000);
         printer.printData(se);
+
+        ContractEmployee ce = new ContractEmployee(201,"Sammak",200,3);
+        printer.printData(ce);
+
     }
 }
