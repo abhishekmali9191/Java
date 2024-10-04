@@ -15,6 +15,7 @@ public class Assignment {
         list1.add("apples");
         list1.add("Banana");
         list1.add("strawberry");
+
         list1.add("Watermelon");
         list1.add("BERRY");
 
