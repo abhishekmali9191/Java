@@ -1,10 +1,7 @@
 package day8.Assignment1;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,11 +15,28 @@ public class Tweeter {
 
     public void list_all_tweets_for_hashtags(List<Tweet> tweets) {
         stream = tweets.stream();
-        Map<Set<String>, Long> hashtags = stream.collect(Collectors.groupingBy(Tweet::getHashtags, Collectors.counting()));
+
+        Map<String, List<Tweet>> hashtags = stream.flatMap(tweet -> tweet.getHashtags().stream().map(hashtag -> Map.entry(hashtag, tweet)))
+                .collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.mapping(Map.Entry::getValue, Collectors.toList())));
+
         hashtags.forEach((k, v) -> System.out.println("Hashtags: " + k + ", Tweets: " + v));
     }
 
-    public void count_tweets_by_subject(List<Tweet> tweets)
+    public void count_tweets_by_subject(List<Tweet> tweets){
+        stream = tweets.stream();
+        Map<String, Long> counts = stream.collect(Collectors.groupingBy(Tweet::getSubject, Collectors.counting()));
+        counts.forEach((k, v) -> System.out.println("Subject: " + k + ", Count: " + v));
+    }
+
+    public void list_all_tweets_with_more_than_10000_views(List<Tweet> tweets) {
+        stream = tweets.stream();
+        stream.filter(t -> t.getViews() > 10000).forEach(System.out::println);
+    }
+
+    public void list_top5_trending_tweets(List<Tweet> tweets) {
+        stream = tweets.stream();
+        stream.sorted(Comparator.comparingInt(Tweet::getViews).reversed()).limit(5).forEach(System.out::println);
+    }
 
     public static void main(String[] args) {
         Tweeter t = new Tweeter();
@@ -37,8 +51,19 @@ public class Tweeter {
         tweets.add(new Tweet("Sports Update", LocalDate.of(2024, 10, 13), 19000, Set.of("#sports","#game", "#update")));
         tweets.add(new Tweet("Discussing on EQ", LocalDate.of(2023, 6, 12), 12000, Set.of("#discussion", "#EQ")));
 
-
+        System.out.println("List of all the tweets of the current month :");
         t.list_all_tweets_current_month(tweets);
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("List of all tweets with hashtags :");
         t.list_all_tweets_for_hashtags(tweets);
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("Count of tweets by subject :");
+        t.count_tweets_by_subject(tweets);
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("List of tweets with more than 10,000 views :");
+        t.list_all_tweets_with_more_than_10000_views(tweets);
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("Top 5 trending tweets :");
+        t.list_top5_trending_tweets(tweets);
     }
 }
