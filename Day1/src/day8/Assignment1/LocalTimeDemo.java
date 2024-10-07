@@ -15,6 +15,7 @@ public class LocalTimeDemo {
 
         long diff = now.until(noon, ChronoUnit.MINUTES);
         System.out.println(diff);
+        System.out.println("--------------------------");
 
         Duration interval = Duration.between(now, noon);
         System.out.println(interval);
