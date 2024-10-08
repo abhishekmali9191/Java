@@ -36,6 +36,4 @@ public class MyQueue {
         notify();
         System.out.println("Get value : "+queue.peek());
     }
-
-
 }

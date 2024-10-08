@@ -2,7 +2,6 @@ package day9;
 
 public class DemoThread {
     public static void main(String[] args) {
-
         // By extending Thread class
         Thread t1 = new Thread1();
         t1.start();
@@ -19,6 +18,5 @@ public class DemoThread {
                 e.printStackTrace();
             }
         }
-
     }
 }
