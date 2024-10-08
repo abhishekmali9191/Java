@@ -22,13 +22,14 @@ public class Account {
         {
             balance-=amount;
         }
-        notify();
+
         System.out.println("Amount of Rs."+amount+" has been withdrawn from Your account");
         System.out.println("Available balance is : "+balance);
     }
     public synchronized void deposit(double amount)
     {
         balance+=amount;
+        notify();
         System.out.println("Amount of Rs."+amount+" has been deposited in Your account successfully....");
         System.out.println("Available balance is : "+balance);
 
